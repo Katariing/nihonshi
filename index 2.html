@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>日本史 Knowledge Map</title>
+<style>
+:root{--bg:#08111f;--panel:#101b2d;--text:#eef4ff;--muted:#91a0b8;--line:#4b607d}
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif;color:var(--text)}
+#app{position:fixed;inset:0;overflow:hidden;touch-action:none}
+#top{position:fixed;z-index:5;top:calc(10px + env(safe-area-inset-top));left:10px;right:10px;display:flex;gap:8px;align-items:center;pointer-events:none}
+#title{pointer-events:auto;background:#101b2dee;border:1px solid #263750;border-radius:14px;padding:10px 13px;box-shadow:0 8px 25px #0005}
+#title b{display:block;font-size:15px}#title span{font-size:10px;color:var(--muted)}
+button{pointer-events:auto;border:0;border-radius:11px;background:#263750;color:white;padding:10px 12px;font-weight:600}
+#hint{position:fixed;z-index:5;bottom:calc(12px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:#101b2dcc;border:1px solid #263750;border-radius:12px;padding:8px 11px;color:#b8c5d9;font-size:11px;white-space:nowrap}
+#info{position:fixed;z-index:6;left:12px;right:12px;bottom:calc(48px + env(safe-area-inset-bottom));background:#101b2df5;border:1px solid #30435f;border-radius:16px;padding:13px;display:none;box-shadow:0 12px 35px #0008}
+#info b{font-size:18px}#info .meta{color:#9eb0c8;font-size:11px;margin:4px 0 8px}.links{display:flex;flex-wrap:wrap;gap:5px}.chip{background:#24344d;border-radius:999px;padding:5px 8px;font-size:11px}
+svg{position:absolute;inset:0;width:100%;height:100%}
+.edge{stroke:var(--line);stroke-width:2.2;opacity:.48;transition:.25s}.edge.active{stroke:#dbeafe;stroke-width:4;opacity:1}.edge.dim{opacity:.06}
+.edge-label{fill:#91a0b8;font-size:9px;text-anchor:middle;pointer-events:none;transition:.25s}.edge-label.dim{opacity:.05}
+.node{cursor:pointer}.node circle{stroke:#fff;stroke-opacity:.35;stroke-width:2;transition:.25s}.node text{fill:#fff;text-anchor:middle;font-weight:700;pointer-events:none}.node .era{fill:#a9b7ca;font-size:9px;font-weight:500}.node.dim{opacity:.10}.node.active circle{stroke:#fff;stroke-width:4;filter:drop-shadow(0 0 8px #fff8)}.node.related circle{filter:drop-shadow(0 0 5px #fff5)}
+</style>
+</head>
+<body>
+<div id="app">
+<svg id="map" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet"></svg>
+</div>
+<div id="top">
+ <div id="title"><b>日本史 Knowledge Map</b><span>タップして知識のネットワークを辿る</span></div>
+ <button id="all">全体</button>
+</div>
+<div id="info"></div>
+<div id="hint">ノードをタップ · 2本指で拡大縮小 · ドラッグで移動</div>
+<script>
+const N=[
+["大化の改新","事件","645",170,320],["乙巳の変","事件","645",330,180],["中大兄皇子","人物","飛鳥",330,330],
+["中臣鎌足","人物","飛鳥",330,470],["公地公民","制度","飛鳥",500,230],["唐・新羅","外交","7世紀",500,390],
+["白村江の戦い","事件","663",650,140],["天智天皇","人物","7世紀",650,300],["壬申の乱","事件","672",800,200],
+["天武天皇","人物","7世紀",800,360],["飛鳥浄御原令","制度","689",950,240],["持統天皇","人物","7世紀",950,420],
+["律令国家","制度","7〜8世紀",650,560],["大宝律令","制度","701",820,620],["藤原氏","人物","飛鳥〜奈良",450,650],
+["藤原不比等","人物","奈良",1000,620],["聖武天皇","人物","8世紀",420,760],["東大寺","文化・思想","奈良",680,730]
+];
+const E=[
+["大化の改新","乙巳の変","発展"],["大化の改新","中大兄皇子","中心人物"],["大化の改新","公地公民","制度"],
+["乙巳の変","中大兄皇子","人物"],["乙巳の変","中臣鎌足","協力"],["中大兄皇子","天智天皇","即位"],
+["中臣鎌足","藤原氏","祖"],["唐・新羅","白村江の戦い","国際関係"],["中大兄皇子","白村江の戦い","参戦"],
+["天智天皇","壬申の乱","後継争い"],["壬申の乱","天武天皇","勝者"],["天武天皇","飛鳥浄御原令","制度"],
+["飛鳥浄御原令","持統天皇","継承"],["天武天皇","律令国家","形成"],["公地公民","律令国家","基盤"],
+["律令国家","大宝律令","完成"],["藤原氏","藤原不比等","人物"],["大宝律令","藤原不比等","編纂"],
+["聖武天皇","東大寺","建立"],["聖武天皇","律令国家","統治"]
+];
+const C={人物:"#60a5fa",事件:"#f59e0b",制度:"#34d399",外交:"#c084fc","文化・思想":"#fb7185"};
+const pos=new Map(N.map(x=>[x[0],[x[3],x[4]]]));
+const adj={};N.forEach(x=>adj[x[0]]=new Set());E.forEach(([a,b])=>{adj[a].add(b);adj[b].add(a)});
+const svg=document.getElementById("map");
+let view={x:0,y:0,s:1},selected=null,drag=null,pinch=null;
+
+function el(tag,attrs={},text=""){const e=document.createElementNS("http://www.w3.org/2000/svg",tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text)e.textContent=text;return e}
+function draw(){
+ svg.innerHTML="";
+ const g=el("g",{transform:`translate(${view.x} ${view.y}) scale(${view.s})`});svg.append(g);
+ const eg=el("g");g.append(eg);
+ E.forEach(([a,b,r])=>{
+   const [x1,y1]=pos.get(a),[x2,y2]=pos.get(b),m=(x1+x2)/2,my=(y1+y2)/2;
+   const line=el("line",{x1,y1,x2,y2,class:"edge","data-a":a,"data-b":b});
+   const lab=el("text",{x:m,y:my-5,class:"edge-label"},r);
+   eg.append(line,lab);
+ });
+ N.forEach(([name,type,era,x,y])=>{
+   const ng=el("g",{class:"node","data-name":name,transform:`translate(${x} ${y})`});
+   ng.append(el("circle",{r:43,fill:C[type],opacity:.18}),el("circle",{r:35,fill:C[type]}));
+   ng.append(el("text",{y:4,"font-size":name.length>7?11:14},name));
+   ng.append(el("text",{y:52,class:"era"},`${type} · ${era}`));
+   ng.addEventListener("pointerdown",e=>{e.stopPropagation();select(name)});
+   g.append(ng);
+ });
+}
+function select(name){
+ selected=name;const related=new Set([name,...adj[name]]);
+ document.querySelectorAll(".node").forEach(n=>{n.classList.toggle("dim",!related.has(n.dataset.name));n.classList.toggle("active",n.dataset.name===name);n.classList.toggle("related",related.has(n.dataset.name)&&n.dataset.name!==name)});
+ document.querySelectorAll(".edge").forEach(e=>{const a=e.dataset.a,b=e.dataset.b;e.classList.toggle("active",a===name||b===name);e.classList.toggle("dim",!(a===name||b===name))});
+ document.querySelectorAll(".edge-label").forEach(l=>l.classList.add("dim"));
+ document.querySelectorAll(".edge.active").forEach(e=>{const a=e.dataset.a,b=e.dataset.b;const labels=[...document.querySelectorAll(".edge-label")];const i=[...document.querySelectorAll(".edge")].indexOf(e);if(labels[i])labels[i].classList.remove("dim")});
+ const n=N.find(x=>x[0]===name), box=document.getElementById("info");
+ box.style.display="block";
+ box.innerHTML=`<b>${name}</b><div class="meta">${n[1]} · ${n[2]}</div><div class="links">${[...adj[name]].map(x=>`<span class="chip">${x}</span>`).join("")}</div>`;
+}
+function reset(){selected=null;document.getElementById("info").style.display="none";draw()}
+document.getElementById("all").onclick=reset;
+document.getElementById("app").addEventListener("pointerdown",e=>{
+ if(e.target.closest(".node"))return;drag={x:e.clientX,y:e.clientY,vx:view.x,vy:view.y};
+});
+document.getElementById("app").addEventListener("pointermove",e=>{
+ if(!drag||pinch)return;view.x=drag.vx+(e.clientX-drag.x);view.y=drag.vy+(e.clientY-drag.y);draw();
+});
+document.getElementById("app").addEventListener("pointerup",()=>drag=null);
+document.getElementById("app").addEventListener("wheel",e=>{view.s=Math.max(.55,Math.min(2.4,view.s*(e.deltaY<0?1.1:.9)));draw()},{passive:true});
+let touches=[];
+document.getElementById("app").addEventListener("touchstart",e=>{touches=[...e.touches];if(touches.length===2){pinch=Math.hypot(touches[0].clientX-touches[1].clientX,touches[0].clientY-touches[1].clientY)}},{passive:true});
+document.getElementById("app").addEventListener("touchmove",e=>{if(e.touches.length!==2||!pinch)return;const t=[...e.touches],d=Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY);view.s=Math.max(.55,Math.min(2.4,view.s*d/pinch));pinch=d;draw()},{passive:true});
+document.getElementById("app").addEventListener("touchend",()=>{pinch=null;touches=[]},{passive:true});
+draw();
+</script>
+</body>
+</html>
