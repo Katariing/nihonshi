@@ -44,119 +44,32 @@ const DATA={
 "藤原京":{type:"文化・都市",era:"694",periods:["asuka"],desc:"本格的な都城として整備された都。",links:["持統天皇","文武天皇","平城京"]},
 "律令国家":{type:"制度",era:"7〜8世紀",periods:["asuka","nara"],desc:"律令を基盤に天皇を中心として統治する国家。",links:["公地公民","班田収授法","大宝律令","天武天皇","飛鳥浄御原令","養老律令","奈良時代","太政官"]},
 "大宝律令":{type:"制度",era:"701",periods:["asuka","nara"],desc:"律・令を体系的に整備。律令国家の制度を完成へ導く。",links:["律令国家","藤原不比等","文武天皇","養老律令"]},
-"藤原不比等":{type:"人物",era:"7〜8世紀",periods:["asuka","nara"],desc:"大宝律令・養老律令の編纂に関わった有力者。",links:["中臣鎌足","藤原氏","大宝律令","養老律令","光明皇后","文武天皇"]},
-"藤原氏":{type:"人物",era:"飛鳥〜奈良",periods:["asuka","nara","heian"],desc:"中臣鎌足を祖とし、奈良時代から平安時代に勢力を拡大。",links:["中臣鎌足","藤原不比等","光明皇后","摂関政治"]},
-"班田収授法":{type:"制度",era:"律令制",periods:["asuka","nara"],desc:"戸籍に基づき口分田を班給する土地制度。",links:["公地公民","律令国家","墾田永年私財法","三世一身法","荘園"]},
-"三世一身法":{type:"制度",era:"723",periods:["nara"],desc:"開墾した土地の一定期間の私有を認めた法。",links:["班田収授法","墾田永年私財法"]},
-"墾田永年私財法":{type:"制度",era:"743",periods:["nara"],desc:"開墾地の永久私有を認め、荘園発達につながる。",links:["班田収授法","三世一身法","聖武天皇","荘園"]},
-"荘園":{type:"制度",era:"奈良〜中世",periods:["nara","heian","kamakura"],desc:"私有地の発達。律令制の変化から中世社会を理解する重要語。",links:["墾田永年私財法","班田収授法","荘園公領制"]},
-"荘園公領制":{type:"制度",era:"中世",periods:["heian","kamakura"],desc:"荘園と公領を単位に中世社会が編成された仕組み。",links:["荘園","守護","地頭","太閤検地"]},
-"聖武天皇":{type:"人物",era:"724〜749",periods:["nara"],desc:"国分寺・東大寺大仏などを通じ仏教による国家鎮護を進めた。",links:["国分寺","東大寺","大仏","墾田永年私財法","天平文化","光明皇后","奈良時代","平城京"]},
-"国分寺":{type:"制度・宗教",era:"741",periods:["nara"],desc:"全国に国分寺・国分尼寺を建立させた政策。",links:["聖武天皇","東大寺","天平文化"]},
-"東大寺":{type:"文化・宗教",era:"奈良",periods:["nara"],desc:"聖武天皇による大仏造立の中心寺院。",links:["聖武天皇","大仏","天平文化","国分寺","正倉院"]},
-"大仏":{type:"文化・宗教",era:"752",periods:["nara"],desc:"東大寺盧舎那仏。国家鎮護の象徴。",links:["東大寺","聖武天皇","天平文化"]},
-"天平文化":{type:"文化・思想",era:"8世紀",periods:["nara"],desc:"国際色豊かな奈良時代の文化。仏教・唐文化の影響が強い。",links:["聖武天皇","東大寺","正倉院","唐","国分寺","大仏","遣唐使","奈良時代"]},
-"正倉院":{type:"文化",era:"奈良",periods:["nara"],desc:"東大寺に伝わる宝物を収蔵。国際交流を示す。",links:["天平文化","東大寺","唐"]},
-"光明皇后":{type:"人物",era:"8世紀",periods:["nara"],desc:"藤原不比等の娘。聖武天皇の皇后。",links:["藤原不比等","藤原氏","聖武天皇"]},
-"養老律令":{type:"制度",era:"718 / 757",periods:["nara"],desc:"大宝律令を修訂した律令。",links:["大宝律令","藤原不比等","律令国家"]},
-"文武天皇":{type:"人物",era:"697〜707",periods:["asuka","nara"],desc:"大宝律令が制定された時代の天皇。",links:["大宝律令","持統天皇","藤原不比等","藤原京"]},
-"聖徳太子":{type:"人物",era:"推古朝",periods:["asuka"],desc:"厩戸王。冠位十二階・十七条憲法などで知られる。",links:["推古天皇","冠位十二階","十七条憲法","遣隋使"]},
-"推古天皇":{type:"人物",era:"592〜628",periods:["asuka"],desc:"日本初の女性天皇。聖徳太子らと政治を進めた。",links:["聖徳太子","蘇我氏","遣隋使","冠位十二階","十七条憲法"]},
-"冠位十二階":{type:"制度",era:"603",periods:["asuka"],desc:"氏姓ではなく才能や功績を基準にした冠位制度。",links:["聖徳太子","推古天皇"]},
-"十七条憲法":{type:"制度",era:"604",periods:["asuka"],desc:"役人の心構えを示した政治理念。",links:["聖徳太子","推古天皇"]},
-"遣隋使":{type:"外交",era:"7世紀",periods:["asuka"],desc:"隋へ派遣された使節。東アジアとの交流を進めた。",links:["聖徳太子","推古天皇","隋","小野妹子"]},
-"小野妹子":{type:"人物",era:"7世紀",periods:["asuka"],desc:"遣隋使として隋へ派遣された人物。",links:["遣隋使","隋"]},
-"遣唐使":{type:"外交",era:"7〜9世紀",periods:["asuka","nara","heian"],desc:"唐へ派遣された使節。制度・文化を日本へ伝えた。",links:["唐","天平文化","菅原道真"]},
-"唐":{type:"外交",era:"7〜9世紀",periods:["asuka","nara","heian"],desc:"遣唐使などを通じ日本に大きな影響を与えた中国王朝。",links:["遣唐使","天平文化","正倉院","唐・新羅","鑑真"]},
-"奈良時代":{type:"時代",era:"710〜794",periods:["nara"],desc:"平城京を中心とした時代。律令国家と天平文化が発展。",links:["平城京","律令国家","聖武天皇","天平文化"]},
-"平城京":{type:"文化・都市",era:"710",periods:["nara"],desc:"奈良時代の政治・文化の中心。",links:["奈良時代","藤原京","聖武天皇","長岡京"]},
-"蘇我氏":{type:"人物",era:"飛鳥",periods:["asuka"],desc:"飛鳥時代の有力豪族。仏教受容や推古朝政治で大きな力を持った。",links:["推古天皇","蘇我入鹿","乙巳の変","仏教伝来"]},
-"蘇我入鹿":{type:"人物",era:"645",periods:["asuka"],desc:"蘇我氏の有力者。乙巳の変で中大兄皇子らに倒された。",links:["蘇我氏","乙巳の変","中大兄皇子"]},
-"仏教伝来":{type:"文化・宗教",era:"6世紀",periods:["asuka"],desc:"百済から仏教が伝わり、古代国家形成と文化に影響した。",links:["蘇我氏","百済","聖徳太子","飛鳥文化"]},
-"飛鳥文化":{type:"文化・思想",era:"飛鳥",periods:["asuka"],desc:"仏教色の強い日本最初の本格的仏教文化。法隆寺などが代表。",links:["聖徳太子","仏教伝来","法隆寺"]},
-"法隆寺":{type:"文化・宗教",era:"飛鳥",periods:["asuka"],desc:"聖徳太子ゆかりの寺院。飛鳥文化を代表する建築。",links:["聖徳太子","飛鳥文化"]},
-"改新の詔":{type:"制度",era:"646",periods:["asuka"],desc:"公地公民や地方行政制度など、律令国家化の方針を示した詔。",links:["大化の改新","公地公民","律令国家"]},
-"近江令":{type:"制度",era:"668頃",periods:["asuka"],desc:"天智天皇期に編纂されたとされる法令。",links:["天智天皇","律令国家"]},
-"防人":{type:"制度",era:"7〜8世紀",periods:["asuka","nara"],desc:"北九州防衛にあたった兵士。白村江敗戦後の国防強化と関係。",links:["白村江の戦い","律令国家","追捕使・押領使"]},
-"太政官":{type:"制度",era:"律令制",periods:["asuka","nara","heian"],desc:"律令制の中央官制で行政を担った最高機関。",links:["律令国家","大宝律令","養老律令","二官八省"]},
-"二官八省":{type:"制度",era:"律令制",periods:["nara","heian"],desc:"神祇官・太政官と八省からなる律令制の中央組織。",links:["太政官","律令国家"]},
-"国司":{type:"制度",era:"律令制",periods:["nara","heian"],desc:"中央から国に派遣された地方官。郡司とともに地方支配を担った。",links:["律令国家","郡司","班田収授法","租庸調","守護"]},
-"郡司":{type:"制度",era:"律令制",periods:["nara","heian"],desc:"地方豪族から任命された郡の役人。",links:["国司","律令国家"]},
-"租庸調":{type:"制度",era:"律令制",periods:["nara","heian"],desc:"律令国家の基本税制。稲・労役代納物・地方特産物などを負担した。",links:["班田収授法","律令国家","国司"]},
-"行基":{type:"人物",era:"奈良",periods:["nara"],desc:"民衆布教や社会事業で知られ、大仏造立にも協力した僧。",links:["聖武天皇","大仏","東大寺"]},
-"鑑真":{type:"人物",era:"奈良",periods:["nara"],desc:"唐から来日し、戒律を伝えた僧。唐招提寺を開いた。",links:["唐","天平文化","唐招提寺"]},
-"唐招提寺":{type:"文化・宗教",era:"奈良",periods:["nara"],desc:"鑑真が開いた寺院。天平文化を代表する。",links:["鑑真","天平文化"]},
-"長岡京":{type:"文化・都市",era:"784",periods:["nara","heian"],desc:"桓武天皇が平城京から遷都した都。",links:["平城京","平安京","桓武天皇"]},
-"平安京":{type:"文化・都市",era:"794",periods:["heian"],desc:"桓武天皇が遷都し、平安時代の中心となった都。",links:["長岡京","桓武天皇","奈良時代"]},
-"桓武天皇":{type:"人物",era:"781〜806",periods:["nara","heian"],desc:"長岡京・平安京遷都を進め、律令政治の再建を図った。",links:["長岡京","平安京","坂上田村麻呂"]},
-"坂上田村麻呂":{type:"人物",era:"平安初期",periods:["heian"],desc:"征夷大将軍として東北経営を進めた。",links:["桓武天皇","征夷大将軍"]},
-"征夷大将軍":{type:"制度",era:"平安〜",periods:["heian","kamakura","muromachi","edo"],desc:"蝦夷征討のための官職。のち武家政権の首長の称号となる。",links:["坂上田村麻呂","鎌倉将軍","室町将軍","江戸将軍"]},
-"摂関政治":{type:"制度",era:"平安",periods:["heian"],desc:"藤原氏が摂政・関白として天皇を補佐し政治を主導した仕組み。",links:["藤原氏","院政","朝廷"]},
-"院政":{type:"制度",era:"平安後期",periods:["heian"],desc:"上皇が院庁を拠点に政治を行った仕組み。武士の進出とも関わる。",links:["朝廷","摂関政治","平氏政権","幕府との関係"]},
-"菅原道真":{type:"人物",era:"平安",periods:["heian"],desc:"遣唐使停止の建議で知られる学者・政治家。",links:["遣唐使","国風文化"]},
-"国風文化":{type:"文化・思想",era:"平安",periods:["heian"],desc:"唐風文化を消化し、日本の風土に合った貴族文化が発達した。",links:["遣唐使","菅原道真"]},
-"追捕使・押領使":{type:"制度",era:"平安",periods:["heian"],desc:"治安維持や反乱鎮圧のために置かれた臨時的な軍事・警察的役割。",links:["防人","守護"]},
-"朝廷":{type:"制度",era:"古代〜近代",periods:["asuka","nara","heian","kamakura","muromachi","edo","meiji"],desc:"天皇を中心とする政治・儀礼の権威。時代ごとに武家政権との関係が変化した。",links:["院政","幕府との関係","武家による朝廷統制"]},
-"平氏政権":{type:"制度",era:"平安末期",periods:["heian"],desc:"平清盛を中心とした武士による政権。鎌倉幕府成立の前段階として重要。",links:["院政","鎌倉幕府"]},
-"鎌倉幕府":{type:"制度",era:"鎌倉",periods:["kamakura"],desc:"源頼朝が開いた武家政権。守護・地頭を通じて全国支配を進めた。",links:["鎌倉将軍","守護","地頭","六波羅探題"]},
-"鎌倉将軍":{type:"人物",era:"鎌倉",periods:["kamakura"],desc:"鎌倉幕府の首長。征夷大将軍の地位を武家政権の頂点として用いた。",links:["征夷大将軍","鎌倉幕府","室町将軍"]},
-"守護":{type:"制度",era:"鎌倉〜室町",periods:["kamakura","muromachi"],desc:"国ごとに置かれた軍事・警察的職。室町期には守護大名化した。",links:["国司","鎌倉幕府","地頭","守護大名","追捕使・押領使"]},
-"地頭":{type:"制度",era:"鎌倉",periods:["kamakura"],desc:"荘園・公領に置かれた土地管理・年貢徴収の職。",links:["鎌倉幕府","守護","荘園公領制"]},
-"六波羅探題":{type:"制度",era:"鎌倉",periods:["kamakura"],desc:"承久の乱後、京都の朝廷監視や西国支配のために置かれた機関。",links:["鎌倉幕府","京都所司代","京都守護職","朝廷"]},
-"幕府との関係":{type:"制度",era:"中世",periods:["kamakura","muromachi"],desc:"朝廷の権威と武家政権の実力が併存し、時代ごとに関係が変化した。",links:["朝廷","院政","武家による朝廷統制"]},
-"室町幕府":{type:"制度",era:"室町",periods:["muromachi"],desc:"足利氏の武家政権。守護大名を基盤に統治した。",links:["室町将軍","守護大名","京都所司代"]},
-"室町将軍":{type:"人物",era:"室町",periods:["muromachi"],desc:"室町幕府の首長。足利氏が任じられた。",links:["征夷大将軍","鎌倉将軍","江戸将軍","室町幕府"]},
-"守護大名":{type:"人物",era:"室町",periods:["muromachi"],desc:"守護が領国支配を強め、大名化したもの。",links:["守護","戦国大名","室町幕府"]},
-"戦国大名":{type:"人物",era:"戦国",periods:["muromachi","azuchi"],desc:"分国法や城下町を基盤に領国を一円支配した大名。",links:["守護大名","太閤検地","大名"]},
-"京都所司代":{type:"制度",era:"江戸",periods:["edo"],desc:"江戸幕府が京都に置いた機関。朝廷・西国大名の監視などを担った。",links:["六波羅探題","京都守護職","武家による朝廷統制"]},
-"太閤検地":{type:"制度",era:"安土桃山",periods:["azuchi"],desc:"豊臣秀吉が全国的に行った土地調査。石高制と兵農分離の基礎。",links:["荘園公領制","石高制","戦国大名","大名"]},
-"石高制":{type:"制度",era:"安土桃山〜江戸",periods:["azuchi","edo"],desc:"米の生産力を基準に土地・大名領・軍役を把握した仕組み。",links:["太閤検地","幕藩体制","大名"]},
-"幕藩体制":{type:"制度",era:"江戸",periods:["edo"],desc:"江戸幕府と藩が全国を支配する近世の政治体制。",links:["江戸将軍","大名","代官","奉行","石高制"]},
-"江戸将軍":{type:"人物",era:"江戸",periods:["edo"],desc:"江戸幕府の首長。徳川氏が征夷大将軍として幕藩体制を統括した。",links:["征夷大将軍","室町将軍","幕藩体制"]},
-"大名":{type:"人物",era:"江戸",periods:["edo"],desc:"江戸時代に一万石以上の領地を支配した武士。藩政を担った。",links:["幕藩体制","代官","戦国大名","石高制"]},
-"代官":{type:"制度",era:"江戸",periods:["edo"],desc:"幕府直轄地である幕領を支配した役人。",links:["幕藩体制","大名","奉行"]},
-"奉行":{type:"制度",era:"江戸",periods:["edo"],desc:"江戸幕府で行政・司法・警察などを分担した役職の総称。",links:["幕藩体制","代官","追捕使・押領使"]},
-"京都守護職":{type:"制度",era:"幕末",periods:["edo"],desc:"幕末に京都警備と尊王攘夷派の取り締まりのために置かれた職。",links:["京都所司代","六波羅探題","武家による朝廷統制"]},
-"武家による朝廷統制":{type:"制度",era:"近世",periods:["edo"],desc:"武家政権が朝廷の政治的行動を制約・監視した流れ。制度名の同一ではなく役割の変化として理解する。",links:["朝廷","京都所司代","京都守護職","幕府との関係"]},
-"明治維新":{type:"事件",era:"明治",periods:["meiji"],desc:"幕藩体制が崩れ、近代国家形成へ向かった政治変革。",links:["版籍奉還","廃藩置県","大日本帝国憲法"]},
-"版籍奉還":{type:"制度",era:"1869",periods:["meiji"],desc:"大名が土地と人民を朝廷に返上した改革。",links:["明治維新","廃藩置県","大名"]},
-"廃藩置県":{type:"制度",era:"1871",periods:["meiji"],desc:"藩を廃止して府県を置き、中央集権化を進めた改革。",links:["明治維新","版籍奉還"]},
-"大日本帝国憲法":{type:"制度",era:"1889",periods:["meiji"],desc:"明治政府が制定した近代憲法。",links:["明治維新","政党政治"]},
-"政党政治":{type:"制度",era:"大正",periods:["taisho"],desc:"政党を基盤として内閣が組織される政治のあり方。",links:["大日本帝国憲法","普通選挙法"]},
-"普通選挙法":{type:"制度",era:"1925",periods:["taisho"],desc:"満25歳以上の男子に選挙権を認めた法律。",links:["政党政治","治安維持法"]},
-"治安維持法":{type:"制度",era:"1925",periods:["taisho","showa"],desc:"国体変革や私有財産制度否認を目的とする結社を取り締まった法律。",links:["普通選挙法"]},
-"日本国憲法":{type:"制度",era:"1946/1947",periods:["showa","heisei"],desc:"国民主権・基本的人権の尊重・平和主義を基本原理とする憲法。",links:["戦後改革"]},
-"戦後改革":{type:"事件",era:"昭和",periods:["showa"],desc:"占領下で行われた民主化・非軍事化の改革。",links:["日本国憲法"]}
+"藤原不比等":{type:"人物",era:"7〜8世紀",periods:["asuka","nara"],desc:"大宝律令・養老律令の編纂に関与し、藤原氏発展の基礎を築いた。",links:["中臣鎌足","大宝律令","養老律令","藤原氏"]},
+"養老律令":{type:"制度",era:"718",periods:["nara"],desc:"藤原不比等らが編纂。後の律令政治の基本となる。",links:["藤原不比等","大宝律令","律令国家"]},
+"平城京":{type:"文化・都市",era:"710",periods:["nara"],desc:"律令国家の都。唐の長安を参考に整備された。",links:["藤原京","奈良時代","東大寺","平城宮"]},
+"奈良時代":{type:"時代",era:"710〜794",periods:["nara"],desc:"平城京を中心に律令国家が展開した時代。",links:["平城京","東大寺","墾田永年私財法","天平文化"]},
+"GHQ":{type:"制度",era:"1945〜1952",periods:["showa"],desc:"連合国軍最高司令官総司令部。占領下の日本で、非軍事化・民主化などの占領政策を進めた中心機関。",links:["戦後改革","日本国憲法"]},
+"日本国憲法":{type:"制度",era:"1946/1947",periods:["showa","heisei"],desc:"国民主権・基本的人権の尊重・平和主義を基本原理とする憲法。",links:["GHQ","戦後改革"]},
+"戦後改革":{type:"事件",era:"昭和",periods:["showa"],desc:"占領下で行われた民主化・非軍事化の改革。",links:["GHQ","日本国憲法"]}
 };
-const LINEAGES={
-kyoto:{name:"京都支配／朝廷監視",desc:"同一制度ではなく、京都の朝廷・公家を監視し政治的秩序を保つ役割の系譜。",terms:["六波羅探題","京都所司代","京都守護職"]},
-local:{name:"地方支配",desc:"中央・武家政権が地方を把握する仕組みの変化。",terms:["国司","守護","守護大名","戦国大名","大名","代官"]},
-land:{name:"土地制度",desc:"公地公民から私有地・中世的土地支配、近世の石高把握へ至る流れ。",terms:["班田収授法","三世一身法","墾田永年私財法","荘園","荘園公領制","太閤検地","石高制"]},
-ruler:{name:"武家政権の最高権力者",desc:"征夷大将軍号が武家政権の首長として使われるようになる流れ。",terms:["征夷大将軍","鎌倉将軍","室町将軍","江戸将軍"]},
-police:{name:"軍事・警察",desc:"防衛・治安維持・取り締まりの役割を持つ制度の変化。",terms:["防人","追捕使・押領使","守護","奉行","京都守護職"]},
-court:{name:"朝廷と武家",desc:"朝廷の権威と武家の実力の関係が変化する流れ。",terms:["朝廷","院政","幕府との関係","武家による朝廷統制"]},
-tax:{name:"税制",desc:"律令税制から土地把握・石高制へつながる受験上重要な流れ。",terms:["租庸調","班田収授法","太閤検地","石高制"]},
-status:{name:"身分制度",desc:"古代の氏姓・官位から近世身分秩序まで、今後追加しやすい入口。",terms:["冠位十二階","大名"]},
-diplomacy:{name:"外交",desc:"東アジア交流と対外関係を時代横断で見る。",terms:["遣隋使","遣唐使","唐","唐・新羅","百済"]},
-culture:{name:"文化・宗教",desc:"仏教受容から古代文化、国風文化までの流れ。",terms:["仏教伝来","飛鳥文化","法隆寺","天平文化","正倉院","国風文化"]}
-};
-const C={人物:"#60a5fa",事件:"#f59e0b",制度:"#34d399","制度・宗教":"#34d399",外交:"#c084fc","文化・思想":"#fb7185",文化:"#fb7185","文化・都市":"#fb7185","文化・宗教":"#fb7185",時代:"#a78bfa"};
-const names=Object.keys(DATA),periodName=Object.fromEntries(PERIODS.map(p=>[p.id,p.name]));
-let homeMode="era",context={kind:"home",id:null,terms:[]},selected=null,activeType="",view={x:0,y:0,s:1},drag=null,pinch=null,last=0,pos={};
-const home=document.getElementById("home"),mapScreen=document.getElementById("mapScreen"),cards=document.getElementById("cards"),svg=document.getElementById("svg"),filters=document.getElementById("filters"),q=document.getElementById("q"),results=document.getElementById("results");
-function safeLinks(n,scope){return (DATA[n]?.links||[]).filter(x=>DATA[x]&&(!scope||scope.includes(x)))}
+const LINEAGES={"showa-postwar":{id:"showa-postwar",name:"戦後改革の系譜",terms:["GHQ","戦後改革","日本国憲法"]}};
+const periodName=Object.fromEntries(PERIODS.map(p=>[p.id,p.name]));
+const names=Object.keys(DATA), C={人物:"#2563eb",事件:"#dc2626",制度:"#059669",外交:"#7c3aed",文化:"#d97706","文化・思想":"#db2777","文化・都市":"#0891b2","文化・宗教":"#65a30d",時代:"#64748b"};
+let context={kind:"period",id:"asuka",terms:[]},selected=null,activeType="",view={x:0,y:0,s:1},drag=null,pinch=null,last=0,homeMode="era";
+const svg=document.getElementById("svg"),mapScreen=document.getElementById("mapScreen"),home=document.getElementById("home"),cards=document.getElementById("cards"),filters=document.getElementById("filters"),results=document.getElementById("results"),q=document.getElementById("q");
 function periodTerms(id){return names.filter(n=>(DATA[n].periods||[]).includes(id))}
-function lineageTerms(id){return (LINEAGES[id]?.terms||[]).filter(n=>DATA[n])}
-function lineagesForTerm(n){return Object.entries(LINEAGES).filter(([,l])=>l.terms.includes(n)).map(([id,l])=>({id,...l}))}
-function renderHome(){home.classList.remove("hide");mapScreen.classList.add("hide");document.getElementById("eraEntry").classList.toggle("on",homeMode==="era");document.getElementById("lineageEntry").classList.toggle("on",homeMode==="lineage");cards.innerHTML="";let list=homeMode==="era"?PERIODS:Object.entries(LINEAGES).map(([id,l])=>({id,name:l.name,subtitle:l.desc,lineage:true}));list.forEach(item=>{let count=item.lineage?lineageTerms(item.id).length:periodTerms(item.id).length;let b=document.createElement("button");b.className="card";b.innerHTML=`<b>${item.name}</b><small>${item.subtitle}</small><span class="count">${count}語</span>`;b.onclick=()=>item.lineage?openLineage(item.id):openPeriod(item.id);cards.append(b)})}
-function enterMap(){home.classList.add("hide");mapScreen.classList.remove("hide");selected=null;activeType="";view={x:0,y:0,s:1};q.value="";results.style.display="none";document.getElementById("info").style.display="none";filters.querySelectorAll(".filter").forEach(b=>b.classList.remove("on"));render()}
+function lineageTerms(id){return LINEAGES[id]?.terms||[]}
+function lineagesForTerm(n){return Object.values(LINEAGES).filter(l=>l.terms.includes(n))}
+function safeLinks(n,scope=names){return (DATA[n]?.links||[]).filter(x=>DATA[x]&&scope.includes(x))}
+function renderHome(){home.classList.remove("hide");mapScreen.classList.add("hide");cards.innerHTML="";if(homeMode==="era"){PERIODS.forEach(p=>{let b=document.createElement("button");b.className="card";b.innerHTML=`<b>${p.name}</b><small>${p.subtitle}</small><span class="count">${periodTerms(p.id).length}語</span>`;b.onclick=()=>openPeriod(p.id);cards.append(b)})}else{Object.values(LINEAGES).forEach(l=>{let b=document.createElement("button");b.className="card";b.innerHTML=`<b>${l.name}</b><small>時代横断のつながり</small><span class="count">${l.terms.length}語</span>`;b.onclick=()=>openLineage(l.id);cards.append(b)})}}
+function enterMap(){home.classList.add("hide");mapScreen.classList.remove("hide");q.value="";results.style.display="none";activeType="";filters.querySelectorAll(".filter").forEach(x=>x.classList.remove("on"));view={x:0,y:0,s:1};render()}
 function openPeriod(id,focus){let p=PERIODS.find(x=>x.id===id);context={kind:"period",id,terms:periodTerms(id)};document.getElementById("title").textContent=`${p.name}時代｜${p.subtitle}`;document.getElementById("subtitle").textContent="時代ごとのKnowledge Map";enterMap();if(focus&&DATA[focus])select(focus,true)}
 function openLineage(id,focus){let l=LINEAGES[id];context={kind:"lineage",id,terms:lineageTerms(id)};document.getElementById("title").textContent=l.name;document.getElementById("subtitle").textContent="時代横断の系譜｜同一制度ではなく役割・機能の流れ";enterMap();if(focus&&DATA[focus])select(focus,true)}
 function openTerm(n){let p=(DATA[n].periods||[])[0]||"asuka";openPeriod(p,n)}
- function S(t,a={},txt=""){let e=document.createElementNS("http://www.w3.org/2000/svg",t);for(let k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;return e}
+function S(t,a={},txt=""){let e=document.createElementNS("http://www.w3.org/2000/svg",t);for(let k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;return e}
 function layout(){let terms=context.terms.filter(n=>DATA[n]);pos={};if(context.kind==="lineage"){terms.forEach((n,i)=>{pos[n]=[150+i*180,390+Math.sin(i*.9)*42]})}else{terms.sort((a,b)=>(parseInt(DATA[a].era)||9999)-(parseInt(DATA[b].era)||9999)||a.localeCompare(b,"ja")).forEach((n,i)=>{pos[n]=[130+(i%6)*205,190+Math.floor(i/6)*140]})}}
 function centerOn(n){if(!pos[n])layout();let [x,y]=pos[n]||[700,450],vb=svg.viewBox.baseVal;view.s=Math.max(1.15,view.s);view.x=vb.width/2-x*view.s;view.y=vb.height/2-y*view.s}
- function drift(n){let i=names.indexOf(n),t=last/1000;return [Math.sin(t*.45+i)*8,Math.cos(t*.37+i*1.3)*6]}
+function drift(n){let i=names.indexOf(n),t=last/1000;return [Math.sin(t*.45+i)*8,Math.cos(t*.37+i*1.3)*6]}
 function visibleTerms(){let termset=context.terms.filter(n=>DATA[n]);let val=q.value.trim();if(val){let hits=names.filter(n=>n.includes(val)||DATA[n].desc.includes(val));termset=[...new Set([...termset,...hits])] }return termset.filter(n=>!activeType||DATA[n].type===activeType)}
 function render(){layout();svg.innerHTML="";let terms=visibleTerms(),scope=new Set(terms),root=S("g",{transform:`translate(${view.x} ${view.y}) scale(${view.s})`});svg.append(root);let eg=S("g");root.append(eg);let rel=selected?new Set([selected,...safeLinks(selected,terms),...lineagesForTerm(selected).flatMap(l=>l.terms).filter(x=>scope.has(x))]):null;
 terms.forEach(a=>safeLinks(a,terms).forEach(b=>{if(a>=b)return;drawEdge(eg,a,b,selected&&(a===selected||b===selected),selected&&!(a===selected||b===selected),false)}));
@@ -165,8 +78,8 @@ terms.forEach(n=>{let d=DATA[n],[x,y]=pos[n]||[700,450],dn=drift(n);x+=dn[0];y+=
 function drawEdge(eg,a,b,act,dim,lineage){let [x1,y1]=pos[a]||[0,0],[x2,y2]=pos[b]||[0,0],da=drift(a),db=drift(b);x1+=da[0];y1+=da[1];x2+=db[0];y2+=db[1];eg.append(S("line",{x1,y1,x2,y2,class:"edge "+(lineage?"lineageEdge ":"")+(act?"active ":"")+(dim?"dim":"")}));if(!lineage)eg.append(S("text",{x:(x1+x2)/2,y:(y1+y2)/2-4,class:"edgeLabel "+(dim?"dim":"")},`${a} ↔ ${b}`))}
 function chip(label,handler,cls=""){let b=document.createElement("button");b.className="chip "+cls;b.textContent=label;b.onclick=handler;return b}
 function select(n,move=false){if(!DATA[n])return;selected=n;if(move)centerOn(n);let d=DATA[n],box=document.getElementById("info"),periods=(d.periods||[]).map(p=>periodName[p]).filter(Boolean),lins=lineagesForTerm(n);box.style.display="block";box.innerHTML=`<b style="font-size:19px">${n}</b><div class="meta">${d.type} · ${d.era}<br>${periods.join("・")}</div><div>${d.desc}</div><div class="meta">直接につながる事項</div><div class="chips" id="direct"></div><div class="meta">時代・時代横断で関連する系譜</div><div class="chips" id="jump"></div>`;let direct=box.querySelector("#direct"),jump=box.querySelector("#jump");safeLinks(n).forEach(x=>direct.append(chip(x,()=>DATA[x]&&(context.terms.includes(x)?select(x,true):openTerm(x)))));periods.forEach((p,i)=>jump.append(chip(p,()=>openPeriod(d.periods[i],n),"lineage")));lins.forEach(l=>{jump.append(chip(`${l.name}の系譜`,()=>openLineage(l.id,n),"lineage"));l.terms.filter(x=>x!==n&&DATA[x]).forEach(x=>jump.append(chip(x,()=>context.terms.includes(x)?select(x,true):openLineage(l.id,x),"lineage"))) });render()}
- function reset(){selected=null;document.getElementById("info").style.display="none";view={x:0,y:0,s:1};render()}
-function renderResults(){let v=q.value.trim();if(!v){results.style.display="none";render();return}let hits=names.filter(n=>n.includes(v)||DATA[n].desc.includes(v)).slice(0,20);results.innerHTML="";hits.forEach(n=>{let b=document.createElement("button");b.className="result";b.innerHTML=`<span>${n}</span><small>${(DATA[n].periods||[]).map(p=>periodName[p]).join(" → ")}</small>`;b.onclick=()=>{results.style.display="none";if(!context.terms.includes(n)){context.terms=[...new Set([...context.terms,n,...safeLinks(n)])]}select(n,true)};results.append(b)});results.style.display=hits.length?"block":"none";render()}
+function reset(){selected=null;document.getElementById("info").style.display="none";view={x:0,y:0,s:1};render()}
+function renderResults(){let v=q.value.trim();if(!v){results.style.display="none";render();return}let hits=names.filter(n=>n.includes(v)||DATA[n].desc.includes(v)).slice(0,20);results.innerHTML="";hits.forEach(n=>{let b=document.createElement("button");b.className="result";b.innerHTML=`<span>${n}</span><small>${(DATA[n].periods||[]).map(p=>periodName[p]).join(" → ")}</small>`;b.onclick=()=>{results.style.display="none";if(!context.terms.includes(n)){context.terms=[...new Set([...context.terms,n,...safeLinks(n)])]}select(n,true)};results.append(b)});results.style.display=hits.length?"block":"none";renderResults}
 ["人物","事件","制度","外交","文化","文化・思想","文化・都市","文化・宗教","時代"].forEach(t=>{let b=document.createElement("button");b.className="filter";b.textContent=t;b.onclick=()=>{activeType=activeType===t?"":t;filters.querySelectorAll(".filter").forEach(x=>x.classList.remove("on"));b.classList.toggle("on",!!activeType);render()};filters.append(b)});
 document.getElementById("eraEntry").onclick=()=>{homeMode="era";renderHome()};document.getElementById("lineageEntry").onclick=()=>{homeMode="lineage";renderHome()};document.getElementById("back").onclick=renderHome;document.getElementById("reset").onclick=reset;q.oninput=renderResults;
 document.getElementById("app").addEventListener("pointerdown",e=>{if(e.target.closest(".node"))return;drag={x:e.clientX,y:e.clientY,vx:view.x,vy:view.y}});document.getElementById("app").addEventListener("pointermove",e=>{if(!drag||pinch)return;view.x=drag.vx+e.clientX-drag.x;view.y=drag.vy+e.clientY-drag.y;render()});document.getElementById("app").addEventListener("pointerup",()=>drag=null);document.getElementById("app").addEventListener("wheel",e=>{e.preventDefault();view.s=Math.max(.45,Math.min(2.8,view.s*(e.deltaY<0?1.1:.9)));render()},{passive:false});document.getElementById("app").addEventListener("touchstart",e=>{if(e.touches.length===2)pinch=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY)},{passive:true});document.getElementById("app").addEventListener("touchmove",e=>{if(e.touches.length!==2||!pinch)return;let d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);view.s=Math.max(.45,Math.min(2.8,view.s*d/pinch));pinch=d;render()},{passive:true});document.getElementById("app").addEventListener("touchend",()=>pinch=null,{passive:true});
