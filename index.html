@@ -24,6 +24,7 @@ frame.addEventListener('load',()=>{
   oldApp.parentNode.replaceChild(fixApp,oldApp);
   fixApp.appendChild(svg);
   frame.contentWindow.eval("(function(){\n"+
+  "const fixApp=document.getElementById('app');\n"+
   "const state={pointers:new Map(),pan:null,pinch:null,moved:false,raf:0};\n"+
   "function schedule(){if(state.raf)return;state.raf=requestAnimationFrame(()=>{state.raf=0;render()})}\n"+
   "function svgPoint(x,y){const r=svg.getBoundingClientRect();return{x:(x-r.left)*1400/r.width,y:(y-r.top)*900/r.height}}\n"+
