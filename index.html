@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>日本史 Knowledge Map</title>
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#050912}
+#map{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}
+</style>
+</head>
+<body>
+<iframe id="map" src="app.html" title="日本史 Knowledge Map"></iframe>
+<script>
+const frame=document.getElementById('map');
+frame.addEventListener('load',()=>{
+  const w=frame.contentWindow;
+  const d=frame.contentDocument;
+  const oldApp=d.getElementById('app');
+  const svg=d.getElementById('svg');
+  if(!oldApp||!svg)return;
+  const fixApp=d.createElement('div');
+  fixApp.id='app';
+  fixApp.style.touchAction='none';
+  oldApp.parentNode.replaceChild(fixApp,oldApp);
+  fixApp.appendChild(svg);
+  const state={pointers:new Map(),pan:null,pinch:null,moved:false,raf:0};
+  function schedule(){if(state.raf)return;state.raf=requestAnimationFrame(()=>{state.raf=0;if(typeof w.render==='function')w.render()})}
+  function svgPoint(x,y){const r=svg.getBoundingClientRect();return{x:(x-r.left)*1400/r.width,y:(y-r.top)*900/r.height}}
+  function midpoint(){const a=[...state.pointers.values()];return{x:(a[0].x+a[1].x)/2,y:(a[0].y+a[1].y)/2}}
+  function distance(){const a=[...state.pointers.values()];return Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)}
+  fixApp.addEventListener('pointerdown',e=>{
+    state.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});try{fixApp.setPointerCapture(e.pointerId)}catch(_){ }
+    if(state.pointers.size===2){
+      const mid=midpoint(),p=svgPoint(mid.x,mid.y);
+      state.pinch={dist:Math.max(1,distance()),scale:w.view.s,focusX:(p.x-w.view.x)/w.view.s,focusY:(p.y-w.view.y)/w.view.s};state.pan=null;state.moved=true;return;
+    }
+    if(e.target.closest&&e.target.closest('.node')){state.pan=null;state.moved=false;return}
+    state.pan={x:e.clientX,y:e.clientY,vx:w.view.x,vy:w.view.y};state.moved=false;
+  });
+  fixApp.addEventListener('pointermove',e=>{
+    if(!state.pointers.has(e.pointerId))return;state.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(state.pointers.size===2&&state.pinch){
+      const mid=midpoint(),r=svg.getBoundingClientRect(),next=Math.max(.45,Math.min(2.8,state.pinch.scale*distance()/state.pinch.dist));
+      const mx=(mid.x-r.left)*1400/r.width,my=(mid.y-r.top)*900/r.height;
+      w.view.s=next;w.view.x=mx-state.pinch.focusX*next;w.view.y=my-state.pinch.focusY*next;state.moved=true;schedule();e.preventDefault();return;
+    }
+    if(state.pan){
+      const r=svg.getBoundingClientRect(),dx=(e.clientX-state.pan.x)*1400/r.width,dy=(e.clientY-state.pan.y)*900/r.height;
+      if(Math.abs(e.clientX-state.pan.x)+Math.abs(e.clientY-state.pan.y)>4)state.moved=true;
+      w.view.x=state.pan.vx+dx;w.view.y=state.pan.vy+dy;schedule();e.preventDefault();
+    }
+  },{passive:false});
+  function end(e){state.pointers.delete(e.pointerId);if(state.pointers.size<2)state.pinch=null;if(state.pointers.size===0)state.pan=null}
+  fixApp.addEventListener('pointerup',end);fixApp.addEventListener('pointercancel',end);fixApp.addEventListener('lostpointercapture',e=>state.pointers.delete(e.pointerId));
+  svg.addEventListener('click',e=>{const node=e.target.closest&&e.target.closest('.node');if(!node||state.moved)return;const name=node.querySelector('text')?.textContent?.trim();if(name&&typeof w.select==='function'&&w.DATA?.[name])w.select(name,true)});
+  fixApp.addEventListener('wheel',e=>{e.preventDefault();const old=w.view.s,next=Math.max(.45,Math.min(2.8,old*(e.deltaY<0?1.1:.9))),p=svgPoint(e.clientX,e.clientY);w.view.x=p.x-(p.x-w.view.x)*(next/old);w.view.y=p.y-(p.y-w.view.y)*(next/old);w.view.s=next;schedule()},{passive:false});
+  if(typeof w.render==='function')w.render();
+});
+</script>
+</body>
+</html>
